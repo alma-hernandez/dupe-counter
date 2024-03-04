@@ -1,12 +1,20 @@
 import IndividualCounter from "./IndividualCounter";
+import React, {useState} from "react";
 
 const Total = () => {
- setNumber +
+    const [total, setTotal] = useState(0);
+
+const updateTotal = (value) => {
+    setTotal=(prevTotal => prevTotal + value);
+
+};
+
 
  return (
   <div>
-   <div>{Total}</div>
-  </div>
+  
+  <div>Total: {total }</div>
+    </div>
  );
 };
 

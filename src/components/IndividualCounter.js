@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 
+const IndividualCounter = ({ updateTotal }) => {
+    const [number, setNumber] = useState(0);
 
-const IndividualCounter = () => {
- const [number, setNumber] = useState(0);
+    const onDecrement = () => {
+        if (number > 0) {
+            setNumber(prevNumber => prevNumber - 1);
+            updateTotal(-1);
+        }
+    };
 
- const onDecrement = () => (
-  setNumber((prevNumber) => prevNumber - 1)
- );
- setNumber();
+    const onIncrement = () => {
+        setNumber(prevNumber => prevNumber + 1);
+        updateTotal(1);
+    };
 
- const onIncrement = () => {
-  setNumber((prevNumber) => prevNumber + 1)
- };
- setNumber();
-
- 
-
- return (
-  <div>
-  <button onClick={onDecrement}>-</button>
-  <button onClick={onIncrement}>+</button>
-  {/* <button onClick={remove}>Delete Item</button> */}
-  </div>
- );
+    return (
+        <div>
+            <button onClick={onDecrement}>-</button>
+            <span>{number}</span>
+            <button onClick={onIncrement}>+</button>
+        </div>
+    );
 };
 
 export default IndividualCounter;
